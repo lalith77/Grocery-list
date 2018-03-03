@@ -1,0 +1,21 @@
+<div class="col-xs-12">
+<a href="#!/addItem" style="margin-bottom: 10px;" class="btn btn-primary btn-lg btn-block">
+  <span class="glyphicon glyphicon-plus"></span>
+  Add Grocery Item
+</a>
+  <ul class="list-group">
+    <li class="list-group-item text-center clearfix" ng-repeat="item in gctrl.groceryItems |orderBy:'-date'">
+      <button type="button" class="btn btn-sm btn-success pull-left" ng-click="gctrl.markCompleted(item)">
+        <span class="glyphicon" ng-class="item.completed ? 'glyphicon-check' : 'glyphicon-unchecked'"> </span>
+      </button>
+
+     <a href="#" class="btn btn-sm btn-danger pull-right" ng-click="gctrl.removeItem(item)">
+       <span class="glyphicon glyphicon-trash "> </span>
+     </a>
+     <span ng-class="{strike:item.completed}" style="font-weight:bold"> {{item.itemName}}</span>
+     <a href="#!/addItem/edit/{{item.id}}" class="btn btn-sm btn-success pull-right">
+       <span class="glyphicon glyphicon-pencil"> </span>
+     </a>
+   </li>
+</ul>
+</div>
